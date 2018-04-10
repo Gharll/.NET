@@ -11,6 +11,8 @@ namespace studia_dn
         private decimal _price;
         private decimal _sentimentalValue;
 
+
+
         public Worth(decimal Price, decimal SentimentalValue)
         {
             _price = Price;

@@ -14,6 +14,7 @@ namespace studia_dn
 
         public Airplane(string name) : base(name)
         {
+
         }
 
         public void ChangeDive(int dive)

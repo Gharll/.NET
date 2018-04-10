@@ -9,28 +9,27 @@ namespace studia_dn
     class ToolBox
     {
 
-        const int PREFERED_SIZE = 2;
-        public delegate void LimitExceeded(int currentSize);
+        private decimal _worthLimit = 1000;
+        private decimal _currentWorth = 0;
+
         public delegate void ShowMessage();
-
-        public event LimitExceeded DetectedLimitOfToolsExceeded;
-        public event ShowMessage ToolsSizeIncreased;
-
-        public void LimitOfToolsExceededHandler(int currentSize)
-        {
-            Console.WriteLine("Limit Of Tools Exceeded!");
-            Console.WriteLine("Current size is " + currentSize + " of prefered size " + PREFERED_SIZE + "\n");
-        }
+        public event ShowMessage ToolBoxSizeIncreasedEvent;
+        public event ShowMessage ToolBoxWorthReachedLimitEvent;
 
         public void ToolsSizeIncreasedHandler()
         {
             Console.WriteLine("Tools size has been increased!\n");
         }
 
+        public void ToolBoxWorthReachedLimitHandler()
+        {
+            Console.WriteLine("The toolbox has reached worth " + _worthLimit + " limit!");
+        }
+
         public void InitEvent()
         {
-            DetectedLimitOfToolsExceeded += LimitOfToolsExceededHandler;
-            ToolsSizeIncreased += ToolsSizeIncreasedHandler;
+            ToolBoxSizeIncreasedEvent += ToolsSizeIncreasedHandler;
+            ToolBoxWorthReachedLimitEvent += ToolBoxWorthReachedLimitHandler;
         }
 
         public ToolBox()
@@ -105,35 +104,23 @@ namespace studia_dn
 
         public void AddTool(Tool tool)
         {
-            ToolsSizeIncreased();
-
-            int size = tools.Count;
-            if (size > PREFERED_SIZE)
+            ToolBoxSizeIncreasedEvent();
+            _currentWorth += tool.CurrentWorth.Price;
+            if(_currentWorth > _worthLimit)
             {
-                DetectedLimitOfToolsExceeded(size);
+                ToolBoxWorthReachedLimitEvent();
             }
             tools.Add(tool);
         }
 
-        public Bike CreateBike(String name)
+        public void DeleteTool(Tool tool)
         {
-            Bike bike = new Bike(name);
-            AddTool(bike);
-            return bike;
+            tools.Remove(tool);
         }
 
-        public Airplane CreateAirplane(String name)
+        public void Clear()
         {
-            Airplane airplane = new Airplane(name);
-            AddTool(airplane);
-            return airplane;
-        }
-
-        public Submarine CreateSubmarine(String name)
-        {
-            Submarine submarine = new Submarine(name);
-            AddTool(submarine);
-            return submarine;
+            tools.Clear();
         }
     }
 }

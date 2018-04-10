@@ -1,0 +1,7 @@
+c:\users\przemek\documents\visual studio 2017\Projects\studia_dn\studia_dn\bin\Debug\studia_dn.exe.config
+c:\users\przemek\documents\visual studio 2017\Projects\studia_dn\studia_dn\bin\Debug\studia_dn.exe
+c:\users\przemek\documents\visual studio 2017\Projects\studia_dn\studia_dn\bin\Debug\studia_dn.pdb
+c:\users\przemek\documents\visual studio 2017\Projects\studia_dn\studia_dn\obj\Debug\studia_dn.csprojResolveAssemblyReference.cache
+c:\users\przemek\documents\visual studio 2017\Projects\studia_dn\studia_dn\obj\Debug\studia_dn.csproj.CoreCompileInputs.cache
+c:\users\przemek\documents\visual studio 2017\Projects\studia_dn\studia_dn\obj\Debug\studia_dn.exe
+c:\users\przemek\documents\visual studio 2017\Projects\studia_dn\studia_dn\obj\Debug\studia_dn.pdb

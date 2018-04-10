@@ -8,8 +8,8 @@ namespace studia_dn
 {
     class Submarine : Tool, IDive, IRise
     {
-        int dive;
-        int rise;
+        public int dive;
+        public int rise;
         public Submarine(string name) : base(name)
         {
         }
